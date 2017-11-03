@@ -1,0 +1,72 @@
+body {
+  margin: 0 0 0 0;
+  background-color: #2c3e50;
+  animation-name: skycolor;
+  animation-duration: 10s;
+  animation-timing-function: linear;
+  animation-delay: 0;
+  animation-iteration-count: infinite;
+}
+
+.grass {
+  background: green;
+  height: 600px;
+  width: 100%;
+  position: absolute;
+}
+
+.sun {
+  background: #f1c40f;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  animation-name: suncolor;
+  animation-duration: 10s;
+  animation-timing-function: linear;
+  animation-delay: 0;
+  animation-iteration-count: infinite;
+}
+
+@keyframes skycolor {
+  0%{
+    background: #1A0659;
+  }
+  10%{
+    background: #8811F7;
+  }
+  30%{
+    background: #0F4DE0;
+  }
+  70%{
+    background: #0F4DE0;
+  }
+  90%{
+    background: #8811F7;
+  }
+  100%{
+    background: #1A0659;
+  }
+}
+
+@keyframes suncolor {
+  0%{
+    background: #E06D0A;
+    transform: translate(0px, 100px);
+  }
+  25%{
+    background: #F79D18;
+    transform: translate(316px, -75px)
+  }
+  50%{
+    background: #F7C80B;
+    transform: translate(626px, -120px)
+  }
+  75%{
+    background: #F79D18;
+    transform: translate(939px, -75px)
+  }
+  100%{
+    background: #FB570B;
+    transform: translate(1400px, 100px)
+  }
+}
