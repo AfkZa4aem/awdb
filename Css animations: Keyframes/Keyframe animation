@@ -1,0 +1,38 @@
+                    ## Keyframe animation
+                    
+* Keyframes allow for much more complex multi-state animations
+* Go from state A to state B to state C to state D to state E...
+
+# Step 1: Define
+* start with @ - then name it
+    @keyframes: rainbowtext {
+        0%{
+            color: red;
+            font-size: 20px;
+        }
+        25%{
+            color: orange;
+        }
+        50%{
+            color: yellow;
+            font-size: 40px;
+            transform: translateX(200px);
+        }
+        75%{
+            color: green;
+        }
+        100%{
+            color: blue;
+            font-size: 20px;
+        }
+    }
+    
+# Step 2: Apply
+* 
+    p {
+        animation-name: rainbowtext;            // must much with annimation
+        animation-duration: 3s;                 // how long
+        animation-timing-function: linear;      // timing fucntion. like for transition
+        animation-delay: 0;                     // how long till animation starts
+        animation-iteration-count: infinite;    // iteration count
+    }
