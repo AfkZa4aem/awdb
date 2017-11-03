@@ -69,3 +69,16 @@
         * https://codepen.io/AfkZa4aem/pen/jaWJRQ?editors=1100#0
         animation-play-state: paused;
         animation-play-state: running;
+
+            ## Shorthand Animations
+            
+* https://codepen.io/AfkZa4aem/pen/LONVNr?editors=1100#0
+
+first time:  animation-duration 
+second time: animation-deleay
+
+animation: 3s ease-in 1s 2 reverse both paused slidein;
+
+animation: changecolor 3s linear 1s infinite
+
+animation: jiggle 4s;
