@@ -36,3 +36,36 @@
         animation-delay: 0;                     // how long till animation starts
         animation-iteration-count: infinite;    // iteration count
     }
+    
+        ## Keyframe properties
+        
+* All the usual suspects are here:
+    * animation-name
+    * animation-duration
+    * animation-timing-function
+    * animtion-delay
+    
+* "newer" animation properties
+    * https://codepen.io/Colt/pen/ayzoaw?editors=1100
+    * animation-iteration-count     
+        How many times should it repeat:
+        animation-iteration-count: 1;
+        animation-iteration-count: 7;
+        animation-iteration-count: infinite;
+    * animation-fill-mode
+        * Specifies how an animation should apply
+        * styles before and after the animation
+        animation-fill-mode: forwards;          // apply final animation state
+        animation-fill-mode: backwards;         // apply 0% animation state immidiately
+        animation-fill-mode: both;              // apply 0% statea nd final state
+        animation-fill-mode: none;              // normal state
+    * animation-direction
+        * https://codepen.io/AfkZa4aem/pen/jaWJRQ?editors=1100
+        animation-direction: forward;
+        animation-direction: reverse;
+        animation-direction: alternate;
+    * animation-play-state
+        * Specifies whether the animation is running or paused
+        * https://codepen.io/AfkZa4aem/pen/jaWJRQ?editors=1100#0
+        animation-play-state: paused;
+        animation-play-state: running;
