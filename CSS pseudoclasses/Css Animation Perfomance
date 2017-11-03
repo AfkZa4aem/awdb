@@ -1,0 +1,9 @@
+1) What can be transitioned?
+
+2) What sould be transitioned?
+* What performs best?
+    transform: translate();
+    transform: scale();
+    transform: rotate();
+    opacity
+    

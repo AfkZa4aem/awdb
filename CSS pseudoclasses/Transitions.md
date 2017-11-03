@@ -35,3 +35,10 @@
     transition-delay: 4s;
     transition-delay: 5ms, 10s;
 * https://codepen.io/AfkZa4aem/pen/dZGKgB?editors=1100
+
+            ## Shorthand Transitions
+* we can write it in one line
+    transition: background 1.5s ease-in 1;
+    transition: 
+        transform 2s cubic-bezier(0.000, 0.005, 0.000, 1.055) 1s,
+        background-color 0.5s linear;
