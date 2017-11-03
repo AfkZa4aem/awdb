@@ -51,7 +51,7 @@ body {
 @keyframes suncolor {
   0%{
     background: #E06D0A;
-    transform: translate(0px, 100px);
+    transform: translate(-200px, 200px);
   }
   25%{
     background: #F79D18;
