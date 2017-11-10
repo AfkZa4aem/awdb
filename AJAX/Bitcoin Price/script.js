@@ -2,6 +2,8 @@
 
 var btn = document.querySelector("#btn");
 var span = document.querySelector("#price")
+var currency = "USD"
+
 
 // event listener
 btn.addEventListener("click", function(){
@@ -10,9 +12,9 @@ btn.addEventListener("click", function(){
   XHR.onreadystatechange = function(){
     if(XHR.readyState == 4 && XHR.status == 200){
       var responseObject = JSON.parse(XHR.responseText);
-      var currency = responseObject.bpi.USD.rate;
-      var code = responseObject.bpi.USD.code;
-      span.innerHTML = currency + " " + code;
+      var price = responseObject.bpi[currency].rate;
+      var code = responseObject.bpi[currency].code;
+      span.innerText = price + " " + code;
     }
   }
 
