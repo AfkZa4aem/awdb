@@ -11,10 +11,6 @@ btn.addEventListener("click", function(){
   .catch(printError)
 });
 
-function printError(error){
-  console.log(error);
-}
-
 function handleErrors(request){
   if(!request.ok){
     throw Error(request.status);
@@ -22,23 +18,29 @@ function handleErrors(request){
   return request;
 }
 
-function parseJSON(request){
-  return request.json();
+function parseJSON(res){
+  return res.json().then(function(data){
+    return data.results[0];
+  });
 }
 
 function updateProfile(data){
   var img = document.querySelector("#avatar")
-  img.src = data.results[0].picture.medium;
+  img.src = data.picture.medium;
 
   var fullName = document.querySelector("#fullname");
-  fullName.innerText = data.results[0].name.first + " " + data.results[0].name.last;
+  fullName.innerText = data.name.first + " " + data.name.last;
 
   var username = document.querySelector("#username");
-  username.innerText = data.results[0].login.username;
+  username.innerText = data.login.username;
 
   var email = document.querySelector("#email");
-  email.innerText = data.results[0].email;
+  email.innerText = data.email;
 
   var city = document.querySelector("#city");
-  city.innerText = data.results[0].location.city;
+  city.innerText = data.location.city;
+}
+
+function printError(error){
+  console.log(error);
 }
