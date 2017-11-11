@@ -1,0 +1,14 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#picture {
+	max-height: 200px;
+	max-width: 200px;
+}
+
+#btn {
+	margin: 20px;
+}
