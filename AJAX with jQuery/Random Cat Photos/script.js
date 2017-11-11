@@ -7,7 +7,12 @@ $("#btn").click(function(){
 		url: "https://random.cat/meow",
 		dataType: "json"
 	})
-	.done(function(data){
-		img.attr("src", data.file);
+	.done(changePict)
+	.fail(function(){
+		console.log("Error!");
 	})
 });
+
+function changePict(data){
+		img.attr("src", data.file);
+	}
