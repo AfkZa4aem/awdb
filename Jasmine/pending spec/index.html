@@ -1,0 +1,100 @@
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.6.2/jasmine.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.6.2/jasmine.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.6.2/jasmine-html.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.6.2/boot.js"></script>
+    </script>
+
+    <script>
+
+      describe("Pending specs", function(){
+
+        xit("can start with an xit", function(){
+          expect(true).toBe(true);
+        });
+
+        it("is a pending test if there is no callback function");
+
+        it("is pending if the pending function is invoked inside the callback", function(){
+          expect(2).toBe(2);
+          pending();
+        });
+
+      });
+
+      // setTimeout + clock()
+
+      describe("a simple setTimeout", function(){
+        var sample;
+        beforeEach(function(){
+          sample = jasmine.createSpy("sampleFunction");
+          jasmine.clock().install();
+        });
+
+        afterEach(function(){
+          jasmine.clock().uninstall();
+        });
+
+        it("is only invoked after 1000 milliseconds", function(){
+          setTimeout(function(){
+            sample();
+          }, 1000);
+          jasmine.clock().tick(999);
+          expect(sample).not.toHaveBeenCalled();
+          jasmine.clock().tick(1);
+          expect(sample).toHaveBeenCalled();
+        });
+      });
+
+      // setInterval + clock()
+
+      describe("a simple setInterval", function(){
+        var dummyFunction;
+
+        beforeEach(function(){
+          dummyFunction = jasmine.createSpy("dummyFunction");
+          jasmine.clock().install();
+        });
+
+        afterEach(function(){
+          jasmine.clock().uninstall();
+        });
+
+        it("checks to see the number of times the function is invoked", function(){
+          setInterval(function(){
+            dummyFunction();
+          }, 1000);
+          jasmine.clock().tick(999);
+          expect(dummyFunction.calls.count()).toBe(0);
+          jasmine.clock().tick(1000);
+          expect(dummyFunction.calls.count()).toBe(1);
+          jasmine.clock().tick(1);
+          expect(dummyFunction.calls.count()).toBe(2);
+        });
+      });
+
+      // Async tests
+
+      function getUserInfo(username){
+        return $.getJSON("https://api.github.com/users/" + username);
+      }
+
+      describe("#getUserInfo", function(){
+        it("returns the correct name for the user", function(done){
+          getUserInfo("afkza4aem").then(function(data){
+            expect(data.name).toBe("Maxim Sereda");
+            done();
+          });
+        });
+      });
+
+    </script>
+
+  </body>
+</html>
