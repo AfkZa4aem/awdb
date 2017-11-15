@@ -71,6 +71,8 @@ Examples:
 
 function hasCertainKey(arr, key){
     return arr.every(function(value){
+        // Elie sulution:
+        // return key in val;
         return value[key];
     });
 }
@@ -92,5 +94,7 @@ Examples:
 */
 
 function hasCertainValue(arr, key, searchValue){
-    
+    return arr.every(function(value){
+        return value[key] === searchValue;
+    });
 }
