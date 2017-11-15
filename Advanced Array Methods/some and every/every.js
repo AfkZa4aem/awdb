@@ -22,6 +22,7 @@ arr.every(function(value, index, array){
 
 function every(arr, callback){
 	for(var i = 0; i < arr.length; i++){
+		// Elie example: if(callback(arr[i], i, arr) === false)
 		if(!callback(arr[i], i, arr)){
 			return false;
 		}
@@ -29,3 +30,20 @@ function every(arr, callback){
 	return true;
 }
 
+// Using every in a function
+
+function allLowerCase(str){
+	return str.split("").every(function(value){
+		return value === value.toLowerCase();
+	});
+}
+
+allLowerCase("this is really nice");	// true
+allLowerCase("this is Really nice"); 	// false
+
+function allArrays(arr){
+	return arr.every(Array.isArray);
+}
+
+allArrays([[1], [2], [3,4]]);	// true
+allArrays([[1], [2], {}]);		// false
