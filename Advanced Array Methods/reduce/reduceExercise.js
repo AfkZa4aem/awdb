@@ -26,11 +26,14 @@ Examples:
 */
 
 function vowelCount(str){
+  var vowels = "aeiou";
   return str.toLowerCase().split("").reduce(function(accumulator, nextValue){
-    if(nextValue in accumulator){
-      accumulator[nextValue]++;
-    } else {
-      accumulator[nextValue] = 1;
+    if(vowels.indexOf(nextValue) !== -1){
+      if(nextValue in accumulator){
+        accumulator[nextValue]++;
+      } else {
+        accumulator[nextValue] = 1;
+      }
     }
     return accumulator;
   }, {});
@@ -52,7 +55,10 @@ Examples:
 */
 
 function addKeyAndValue(arr, key, value){
-
+  return arr.reduce(function(accumulator, nextValue, i){
+    accumulator[i][key] = value;
+    return accumulator;
+  }, arr);
 }
 
 
@@ -79,5 +85,12 @@ Examples:
 */
 
 function partition(arr, callback){
-
+  return arr.reduce(function(acc, next){
+    if(callback(next)){
+      acc[0].push(next);
+    } else {
+      acc[1].push(next)
+    }
+    return acc;
+  }, [[],[]]);
 }

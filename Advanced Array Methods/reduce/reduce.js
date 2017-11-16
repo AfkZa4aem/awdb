@@ -70,7 +70,7 @@ function sumOddNumbers(arr){
 sumOddNumbers([1,2,3,4,5]);		// 9
 
 function createFullname(arr){
-	return ar.reduce(function(accumulator, nextValue){
+	return arr.reduce(function(accumulator, nextValue){
 		accumulator.push(nextValue.first + " " + nextValue.last);
 		return accumulator
 	}, []);
