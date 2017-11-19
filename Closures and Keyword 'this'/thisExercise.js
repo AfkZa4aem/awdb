@@ -52,7 +52,7 @@ function invokeMax(fn, num){
   var count = 0;
   return function(){
     if(count !== num){
-      
+
     }
     return "Maxed Out!";
   }
@@ -85,7 +85,13 @@ Examples:
 */
 
 function once(fn, thisArg){
-
+    var hasBeenCalled = false;
+    return function(){
+        if(!hasBeenCalled){
+            hasBeenCalled = true;
+            return fn.apply(thisArg, arguments)
+        }
+    }
 }
 
 // BONUSES!
