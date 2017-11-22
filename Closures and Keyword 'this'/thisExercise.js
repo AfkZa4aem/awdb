@@ -32,6 +32,17 @@ function sumEvenArguments(){
   return sum;
 }
 
+// Elie solution
+function sumEvenArguments(){
+  var newArgs = [].slice.call(arguments);
+  return newArgs.reduce(function(acc,next){
+    if(next % 2 === 0){
+      return acc + next;
+    }
+    return acc;
+  }, 0);
+}
+
 /*
 Write a function called invokeMax which accepts a function and a maximum amount. invokeMax should return a function that when called increments a counter. If the counter is greater than the maximum amount, the inner function should return "Maxed Out"
 
@@ -56,6 +67,18 @@ function invokeMax(fn, num){
     if(counter > num){
       return "Maxed Out!";
     }
+    return fn.apply(this, arguments);
+  }
+}
+
+// Elle solution
+function invokeMax(fn, num){
+  var max = 0;
+  return function(){
+    if(max >= num){
+      return "Maxed Out!"
+    }
+    max++;
     return fn.apply(this, arguments);
   }
 }
