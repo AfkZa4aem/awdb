@@ -22,13 +22,14 @@ Examples:
 */
 
 function sumEvenArguments(){
-    var arr = [].slice.call(arguments)
-    return arr.reduce(function(acc, next){
-      if(next % 2 === 0){
-        return acc + next;
-      }
-      return acc;
-    }, 0)
+  var arr = [].slice.call(arguments);
+  var sum = 0;
+  for(var i = 0; i < arr.length; i++){
+    if(arr[i] % 2 === 0){
+      sum += arr[i];
+    }
+  }
+  return sum;
 }
 
 /*
@@ -49,12 +50,13 @@ Examples:
 */
 
 function invokeMax(fn, num){
-  var count = 0;
+  var counter = 0;
   return function(){
-    if(count !== num){
-
+    counter ++;
+    if(counter > num){
+      return "Maxed Out!";
     }
-    return "Maxed Out!";
+    return fn.apply(this, arguments);
   }
 }
 
@@ -85,13 +87,13 @@ Examples:
 */
 
 function once(fn, thisArg){
-    var hasBeenCalled = false;
-    return function(){
-        if(!hasBeenCalled){
-            hasBeenCalled = true;
-            return fn.apply(thisArg, arguments)
-        }
+  var called = false;
+  return function(){
+    if(!called){
+      called = true;
+      return fn.apply(thisArg, arguments);
     }
+  }
 }
 
 // BONUSES!
@@ -128,12 +130,13 @@ Examples:
 
 */
 
-function flip(fn, thisArg){
+
+function bind(fn, thisArg){
     var outerArgs = [].slice.call(arguments,2)
     return function(){
         var innerArgs = [].slice.call(arguments)
-        var allArgs = outerArgs.concat(innerArgs).slice(0, fn.length)
-        return fn.apply(thisArg, allArgs.reverse())
+        var allArgs = outerArgs.concat(innerArgs)
+        return fn.apply(thisArg, allArgs)
     }
 }
 
@@ -172,6 +175,12 @@ Examples:
 */
 
 
-function flip(fn, thisArg){
 
+function flip(fn, thisArg){
+    var outerArgs = [].slice.call(arguments,2)
+    return function(){
+        var innerArgs = [].slice.call(arguments)
+        var allArgs = outerArgs.concat(innerArgs).slice(0, fn.length)
+        return fn.apply(thisArg, allArgs.reverse())
+    }
 }
