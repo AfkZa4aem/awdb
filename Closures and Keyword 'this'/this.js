@@ -196,3 +196,38 @@ var colt = {
   }
 }
 colt.sayHi(); //Hi Colt (1000 milliseconds later)
+
+      // the 'new' keyword
+
+// we can set the context of the keyword 'this' using the
+// 'new' keyword - it does quite a bit more as well which
+// we will discuss further whe we talk about OOP
+
+function Person(firstName, lastName){
+  this.firstName = firstName;
+  this.lastName = last.name;
+}
+
+var elie = new Person("Elie", "Schoppik");
+
+elie.firstName;   // "Elie"
+elie.lastName;    // "Schoppik"
+
+
+
+            // Recap
+
+// The keyword 'this' is a reserved keyword in JavaScript and its value
+// is determined at execution
+
+// It is either set using the glodal context, object binding, Explicit
+// binding, or the new keyword
+
+// When set in the global context in a function, it is either the global
+// object (window if in the browser) or undefined (if we are using strict mode)
+
+// To explicitly set the value of the keyword 'this', we use call,
+// apply, or bind
+
+// we can also use the 'new' keyword to set the context of 'this', which
+// we will discuss when we talk about Object Oriented Programming
