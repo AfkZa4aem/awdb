@@ -26,3 +26,11 @@ Array.prototype.map = function(callback){
 	}
 	return newArr;
 }
+
+String.prototype.reverse = function(){
+  var newStr = "";
+  for(var i = this.length -1; i >= 0; i--){
+    newStr += this[i]
+  }
+  return newStr;
+}
