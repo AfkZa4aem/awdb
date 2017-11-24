@@ -13,16 +13,16 @@ Vehicle.prototype.toString = function(){
 }
 
 function Car(make, model, year){
+	Vehicle.apply(this, arguments);
 	this.numWheels = 4;
-	return Vehicle.apply(this, arguments);
 }
 
 Car.prototype = Object.create(Vehicle.prototype);
 Car.prototype.constructor = Car;
 
 function Motorcycle(make, model, year){
+	Vehicle.apply(this, arguments);
 	this.numWheels = 2;
-	return Vehicle.apply(this, arguments);
 }
 
 Motorcycle.prototype = Object.create(Vehicle.prototype);
