@@ -119,6 +119,11 @@ class MessageBoard {
       this.messages.forEach(v => newArr.push(v));
       return newArr;
     }
+
+    // Elie solution
+    messagesToArray(){
+      return Array,from(this.messages.values());
+    }
 }
 
 /*
