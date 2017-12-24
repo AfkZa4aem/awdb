@@ -15,14 +15,16 @@
 		class Pet extends React.Component { 
 			render() {
 				const liStyle = {fontSize: '1.5em'};
+				const hobbies = ['Sleepeng', 'Eating', 'Cuddling'];
 				return (
 					<div className="card">
 						<h2 className="name">Moxie</h2>
 						<img src=" https://images.unsplash.com/photo-1482066490729-6f26115b60dc?auto=format&fit=crop&w=1002&q=80 " alt="Moxie " />
 						<h5 style={{fontSize: '2em', margin: '2px'}}>Hobbies:</h5>
 						<ul>
-							<li style={liStyle}>Sleep</li>
-							<li style={liStyle}>Eat</li>
+							{hobbies.map((h, i) => {
+								return <li key={i} style={liStyle}>{h}</li>
+							})}
 						</ul>
 					</div>);
 			}
