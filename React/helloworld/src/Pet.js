@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Pet.css';
+import HobbyList from './HobbyList';
 
 class Pet extends Component { 
   render() {				
@@ -8,7 +9,7 @@ class Pet extends Component {
         <h2 className="name">Moxie</h2>
         <img src=" https://images.unsplash.com/photo-1482066490729-6f26115b60dc?auto=format&fit=crop&w=1002&q=80 " alt="Moxie " />
         <h5 style={{fontSize: '2em', margin: '2px'}}>Hobbies:</h5>			
-        {/* <HobbyList /> */}
+        <HobbyList />
       </div>
     );
   }
