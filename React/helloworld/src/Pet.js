@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Pet.css';
 
 class Pet extends Component { 
   render() {				
